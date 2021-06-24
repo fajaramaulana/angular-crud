@@ -1,1 +1,45 @@
-<p>bensin-list works!</p>
+<div class="list row">
+    <div class="col-md-6">
+      <h4>Bensins List</h4>
+      <ul class="list-group">
+        <li
+          class="list-group-item"
+          *ngFor="let bensin of bensins; let i = index"
+          [class.active]="i == currentIndex"
+          (click)="setActiveBensin(tutorial, i)"
+        >
+          {{ bensin.jumlah_liter }}
+        </li>
+      </ul>
+  
+      <button class="m-3 btn btn-sm btn-danger" (click)="removeAllBensins()">
+        Remove All
+      </button>
+    </div>
+    <div class="col-md-6">
+      <div *ngIf="currentBensin.id">
+        <h4>Bensin</h4>
+        <div>
+          <label><strong>Jumlah Liter:</strong></label> {{ currentBensin.jumlah_liter }}
+        </div>
+        <div>
+          <label><strong>Premium:</strong></label>
+          {{ currentBensin.premium }}
+        </div>
+        <div>
+          <label><strong>Pertalite:</strong></label>
+          {{ currentBensin.pertalite }}
+        </div>
+        
+  
+        <a class="badge badge-warning" routerLink="/bensins/{{ currentBensin.id }}">
+          Edit
+        </a>
+      </div>
+  
+      <div *ngIf="!currentBensin">
+        <br />
+        <p>Please click on a Bensin...</p>
+      </div>
+    </div>
+  </div>

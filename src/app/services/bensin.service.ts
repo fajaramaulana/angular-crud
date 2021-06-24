@@ -32,4 +32,8 @@ export class BensinService {
     return this.http.delete(`${baseUrl}/bbm/${id}`);
   }
 
+  deleteAll(): Observable<any> {
+    return this.http.delete(baseUrl);
+  }
+
 }
