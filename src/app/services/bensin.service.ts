@@ -13,7 +13,7 @@ export class BensinService {
   constructor(private http: HttpClient) { }
 
   getAll(): Observable<Bensin[]> {
-    return this.http.get<Bensin[]>(baseUrl);
+    return this.http.get<Bensin[]>(`${baseUrl}/bbm`);
   }
 
   get(id: any): Observable<Bensin> {

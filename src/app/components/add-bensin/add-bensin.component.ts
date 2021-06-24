@@ -35,6 +35,7 @@ export class AddBensinComponent implements OnInit {
         },
         error => {
           console.log(error);
+          console.log(data)
         });
   }
 

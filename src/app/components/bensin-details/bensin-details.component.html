@@ -1,1 +1,59 @@
-<p>bensin-details works!</p>
+<div>
+    <div *ngIf="currentBensin.id" class="edit-form">
+      <h4>Bensin</h4>
+      <form>
+        <div class="form-group">
+          <label for="jumlah_liter">jumlah_liter</label>
+          <input
+            type="text"
+            class="form-control"
+            id="jumlah_liter"
+            [(ngModel)]="currentBensin.jumlah_liter"
+            name="jumlah_liter"
+          />
+        </div>
+        <div class="form-group">
+          <label for="premium">pertalite</label>
+          <input
+            type="number"
+            class="form-control"
+            id="premium"
+            [(ngModel)]="currentBensin.premium"
+            name="premium"
+          />
+        </div>
+
+        <div class="form-group">
+            <label for="pertalite">premium</label>
+            <input
+              type="number"
+              class="form-control"
+              id="pertalite"
+              [(ngModel)]="currentBensin.pertalite"
+              name="pertalite"
+            />
+          </div>
+  
+        
+      </form>
+  
+  
+      <button class="badge badge-danger mr-2" (click)="deleteBensin()">
+        Delete
+      </button>
+  
+      <button
+        type="submit"
+        class="badge badge-success mb-2"
+        (click)="updateBensin()"
+      >
+        Update
+      </button>
+      <p>{{ message }}</p>
+    </div>
+  
+    <div *ngIf="!currentBensin.id">
+      <br />
+      <p>Cannot access this bensin...</p>
+    </div>
+  </div>
